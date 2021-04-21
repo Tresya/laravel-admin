@@ -17,7 +17,7 @@ class KaryawanController extends Controller
     public function index()
     {
         $data=Karyawan::all();
-        return view('admin.sahrul.index', compact('data'));
+        return view('admin.praktikum.index', compact('data'));
     }
 
     /**
@@ -29,7 +29,7 @@ class KaryawanController extends Controller
     {
         $data_kategori = Karyawan::all();
         $pagename = 'Form Input';
-        return view('admin.sahrul.create', compact('pagename','data_kategori'));
+        return view('admin.praktikum.create', compact('pagename','data_kategori'));
     }
 
     /**
@@ -53,7 +53,7 @@ class KaryawanController extends Controller
             'jabatanKaryawan' => $request->get('Jabatan_karyawan'),
         ]);
         $data_tugas->save();
-        return redirect('admin/sahrul')->with('status', 'Data berhasil ditambah!!');
+        return redirect('admin/praktikum')->with('status', 'Data berhasil ditambah!!');
     }
 
     /**
@@ -100,6 +100,6 @@ class KaryawanController extends Controller
     {
         $tugas = Karyawan::find($id);
         $tugas->delete();
-        return redirect('admin/sahrul')->with('hapus', 'Data berhasil dihapus!!');
+        return redirect('admin/praktikum')->with('hapus', 'Data berhasil dihapus!!');
     }
 }
